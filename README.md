@@ -1,5 +1,5 @@
 # <div align="center"> CARS STATS </div>
-The following project is the first of two delivered during the Big Data course. The aim of this project is to learn how to use and put into practice technologies such as Hadoop, Hive and Spark on a real case study. This repository shows the implementation that my colleague [Matteo Vitale](https://github.com/MatVitale6) and [I](https://github.com/AntonioSouls) decided to apply to solve the specifications required by the project. In particular, out of all the project specifications (below), we chose to implement the first and third as we felt they were the most interesting to work on and the ones that were really most applicable in a real context.
+The following project is the first of two delivered during the Big Data course. The aim of this project is to learn how to use and put into practice technologies such as Hadoop, Hive and Spark on a real case study. This repository shows the implementation that my colleague [Matteo Vitale](https://github.com/MatVitale6) and [I](https://github.com/AntonioSouls) decided to apply to solve the specifications required by the project. In particular, out of all the project specifications (below), we chose to implement the `first` and `third` as we felt they were the most interesting to work on and the ones that were really most applicable in a real context.
 
 ## Project Specifications
 Consider the US Used Cars Dataset from Kaggle, which contains about 3 million records with detailed 
@@ -22,6 +22,8 @@ at least two of the following analyses using at least three of the following tec
         - The three most frequent words appearing in the car descriptions (description). 
 3. A job that groups car models with “similar” engine characteristics—i.e., models whose horsepower and 
 engine displacement values differ by at most 10%. For each group, report the average price and the model with the highest horsepower.
+
+## Description of our Work
 
 ## Authors
 <a href="https://github.com/AntonioSouls">
