@@ -33,3 +33,12 @@ engine displacement values differ by at most 10%. For each group, report the ave
   <img src="https://github.com/MatVitale6.png" width="80">
 </a>
 
+## Sezione Temporanea con gli step da svolgere
+- Scaricare il Dataset [(Io)](https://github.com/AntonioSouls);
+- Creare uno script per pulirlo [(Io)](https://github.com/AntonioSouls);
+- Creare un bash per automatizzare i due step precedenti [(Io)](https://github.com/AntonioSouls);
+- Creare due script per risolvere i job con MapReduce [(Io)](https://github.com/AntonioSouls);
+- Creare due script per risolvere i job con Hive [(Io)](https://github.com/AntonioSouls);
+- Creare due script per risolvere i job con Spark [(Matteo)](https://github.com/MatVitale6);
+- Creare una sorta di interfaccia per poter selezionare quale job eseguire e con quale tecnologia [(Matteo)](https://github.com/MatVitale6);
+
