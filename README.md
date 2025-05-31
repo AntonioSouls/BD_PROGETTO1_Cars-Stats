@@ -23,8 +23,31 @@ at least two of the following analyses using at least three of the following tec
 3. A job that groups car models with “similar” engine characteristics—i.e., models whose horsepower and 
 engine displacement values differ by at most 10%. For each group, report the average price and the model with the highest horsepower.
 
-## Description of our Work
-## How to use this software
+## How to use this Software
+To be able to use our solution, it is important to carry out the following steps:
+- Cloning the repository locally:
+  ```bash
+  git clone https://github.com/AntonioSouls/BD_PROGETTO1_Cars-Stats.git
+  ```
+- Create local folders:
+  ```bash
+  mkdir -p ~/<YOUR-PATH-TO-PROJECT>/BD_PROGETTO1_Cars-Stats/data
+  cd ~/<YOUR-PATH-TO-PROJECT>/BD_PROGETTO1_Cars-Stats
+  ```
+- Initialise and Activate the virtual environment:
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+- Install Kaggle and Pandas into the virtual environment:
+  ```bash
+  pip install kaggle pandas
+  ```
+These listed are the commands to be executed only at the first execution of the project. The following are the commands to start the project. (If it is not the first execution of the project, you can start directly from the following):
+- ```bash
+  bash start.sh
+  ```
+
 ## Authors
 <a href="https://github.com/AntonioSouls">
   <img src="https://github.com/AntonioSouls.png" width="80">
