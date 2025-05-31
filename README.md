@@ -25,6 +25,15 @@ engine displacement values differ by at most 10%. For each group, report the ave
 
 ## How to use this Software
 To be able to use our solution, it is important to carry out the following steps:
+### Environment Setup
+- Install Hadoop, Hive & Spark
+- Create Kaggle Account: https://www.kaggle.com/
+- Go to "My Account" > "Create API Token"
+- Download file kaggle.json
+- Move it into ~/.kaggle/ folder:
+  ```bash
+  mv ~/Downloads/kaggle.json ~/.kaggle/
+  ```
 - Cloning the repository locally:
   ```bash
   git clone https://github.com/AntonioSouls/BD_PROGETTO1_Cars-Stats.git
@@ -37,13 +46,14 @@ To be able to use our solution, it is important to carry out the following steps
 - Initialise and Activate the virtual environment:
   ```bash
   python3 -m venv venv
-  source venv/bin/activate
   ```
-- Install Kaggle and Pandas into the virtual environment:
+- Starting the automatic setup
   ```bash
-  pip install kaggle pandas
+  bash setup.sh
   ```
-These listed are the commands to be executed only at the first execution of the project. The following are the commands to start the project. (If it is not the first execution of the project, you can start directly from the following):
+These listed are the commands to be executed only at the first execution of the project because are useful commands for setting the working environment, downloading the dataset and cleaning it all automatically
+### Execution after the setup
+The following is the command to start the project. (If it is not the first execution of the project, you can start directly from the following):
 - ```bash
   bash start.sh
   ```
@@ -57,9 +67,9 @@ These listed are the commands to be executed only at the first execution of the 
 </a>
 
 ## Sezione Temporanea con gli step da svolgere
-- Scaricare il Dataset [(Io)](https://github.com/AntonioSouls);
-- Creare uno script per pulirlo [(Io)](https://github.com/AntonioSouls);
-- Creare un bash per automatizzare i due step precedenti [(Io)](https://github.com/AntonioSouls);
+- Scaricare il Dataset [(Io)](https://github.com/AntonioSouls);✅
+- Creare uno script per pulirlo [(Io)](https://github.com/AntonioSouls);✅
+- Creare un bash per automatizzare i due step precedenti [(Io)](https://github.com/AntonioSouls);✅
 - Creare due script per risolvere i job con MapReduce [(Io)](https://github.com/AntonioSouls);
 - Creare due script per risolvere i job con Hive [(Io)](https://github.com/AntonioSouls);
 - Creare due script per risolvere i job con Spark [(Matteo)](https://github.com/MatVitale6);
