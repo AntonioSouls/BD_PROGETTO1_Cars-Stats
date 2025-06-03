@@ -3,10 +3,13 @@ DROP TABLE IF EXISTS cars;
 -- Crea la tabella esterna
 
 CREATE EXTERNAL TABLE IF NOT EXISTS cars (
+  engine_displacement FLOAT,
+  horsepower FLOAT,
   make_name STRING,
   model_name STRING,
-  year INT,
-  price FLOAT
+  power FLOAT,
+  price FLOAT,
+  year INT
 )
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
@@ -26,6 +29,6 @@ SELECT
   MIN(price) AS min_price,
   MAX(price) AS max_price,
   ROUND(AVG(price), 2) AS avg_price,
-  COLLECT_SET(year) AS years
+  CONCAT_WS(',', COLLECT_SET(CAST(year AS STRING))) as years
 FROM cars
 GROUP BY make_name, model_name;
