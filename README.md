@@ -70,7 +70,7 @@ The following is the command to start the project. (If it is not the first execu
 - Scaricare il Dataset [(Io)](https://github.com/AntonioSouls);✅
 - Creare uno script per pulirlo [(Io)](https://github.com/AntonioSouls);✅
 - Creare un bash per automatizzare i due step precedenti [(Io)](https://github.com/AntonioSouls);✅
-- Creare due script per risolvere i job con MapReduce [(Io)](https://github.com/AntonioSouls);
+- Creare due script per risolvere i job con MapReduce [(Io)](https://github.com/AntonioSouls);✅
 - Creare due script per risolvere i job con Hive [(Io)](https://github.com/AntonioSouls);
 - Creare due script per risolvere i job con Spark [(Matteo)](https://github.com/MatVitale6);
 - Creare una sorta di interfaccia per poter selezionare quale job eseguire e con quale tecnologia [(Matteo)](https://github.com/MatVitale6);
