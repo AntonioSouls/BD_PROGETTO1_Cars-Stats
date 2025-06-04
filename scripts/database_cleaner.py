@@ -20,6 +20,7 @@ df['year'] = df['year'].astype(int)
 print("Unification of names ...")
 df["make_name"] = df["make_name"].str.strip().str.title()
 df["model_name"] = df["model_name"].str.strip().str.title()
+df["power"] = df["power"].astype(str).str.replace(',','', regex=False).replace('nan', '').str.strip()
 
 # Salvo il DataFrame pulito
 df.to_csv("data/vehicles_clean.csv", index=False)
