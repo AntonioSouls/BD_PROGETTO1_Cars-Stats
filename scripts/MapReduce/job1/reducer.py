@@ -27,4 +27,4 @@ for key in models_dictionary.keys():
 
     years_list = sorted(set(years_list))
 
-    print(f"Marca: {make_name}, Modello: {model_name}, Numero Totale Macchine: {total_cars}, Prezzo Minimo: {min_price}, Prezzo Massimo: {max_price}, Prezzo Medio: {avg_price}, Lista Anni: {years_list}")
+    print(f"Marca: {make_name}, Modello: {model_name}, Numero Totale Macchine: {total_cars}, Prezzo Minimo: {min_price}, Prezzo Massimo: {max_price}, Prezzo Medio: {avg_price:.2f}, Lista Anni: {years_list}")

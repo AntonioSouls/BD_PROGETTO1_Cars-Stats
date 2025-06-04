@@ -11,6 +11,9 @@ for row in table:
     year = int(row['year'])
     price = float(row['price'])
 
+    if year > 2025 or year < 1886 or price < 2500.0:
+        continue
+
     key = f"{make_name},{model_name}"
     value = f"{year},{price}"
 
