@@ -1,3 +1,8 @@
+-- Parametri Hive
+SET hive.strict.checks.cartesian.product=false;
+SET hive.mapred.mode=nonstrict;
+
+-- Step 0: crea tabella
 DROP TABLE IF EXISTS cars;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS cars (
@@ -14,38 +19,40 @@ FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
 LOCATION '/user/frompoo/data';
 
--- Step 1: crea una tabella temporanea con i gruppi distinti
-DROP TABLE IF EXISTS car_groups;
+-- Step 1: crea tabella con bucket_id
+DROP TABLE IF EXISTS cars_bucketed;
 
-CREATE TABLE car_groups AS
-SELECT DISTINCT
-  engine_displacement,
-  horsepower,
-  power,
-  ROW_NUMBER() OVER () AS group_id
+CREATE TABLE cars_bucketed AS
+SELECT
+  *,
+  CAST(FLOOR(engine_displacement / 0.2) AS INT) * 1000 + CAST(FLOOR(horsepower / 10) AS INT) AS bucket_id
 FROM cars;
 
--- Step 2: join tra cars e car_groups per assegnare ogni modello a un gruppo
-DROP TABLE IF EXISTS cars_with_group;
+-- Step 2: join solo tra modelli nello stesso bucket
+DROP TABLE IF EXISTS cars_joined;
 
-CREATE TABLE cars_with_group AS
+CREATE TABLE cars_joined AS
 SELECT
-  c.*,
-  g.group_id
-FROM cars c
-JOIN car_groups g
-  ON c.engine_displacement = g.engine_displacement
-  AND c.horsepower = g.horsepower
-  AND c.power = g.power;
+  a.model_name AS group_rep,
+  b.model_name AS grouped_model,
+  b.horsepower,
+  b.engine_displacement,
+  b.price
+FROM cars_bucketed a
+JOIN cars_bucketed b
+  ON a.bucket_id = b.bucket_id
+WHERE
+  ABS(a.horsepower - b.horsepower)/a.horsepower <= 0.1
+  AND ABS(a.engine_displacement - b.engine_displacement)/a.engine_displacement <= 0.1;
 
--- Step 3: aggregazioni per ogni gruppo
+-- Step 3: aggregazioni finali
 INSERT OVERWRITE DIRECTORY '/user/frompoo/data/output_job3_Hive'
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 SELECT
-  group_id,
+  group_rep,
   ROUND(AVG(price), 2) AS avg_price,
   MAX(horsepower) AS max_hp,
-  CONCAT_WS(',', COLLECT_SET(model_name)) AS models
-FROM cars_with_group
-GROUP BY group_id;
+  CONCAT_WS(',', COLLECT_SET(grouped_model)) AS grouped_models
+FROM cars_joined
+GROUP BY group_rep;
